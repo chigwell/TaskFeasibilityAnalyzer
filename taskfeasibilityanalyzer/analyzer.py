@@ -1,31 +1,22 @@
-import openai
 from projectstructor.detector import ProjectStructureDetector
+from gptintegration import GPTIntegration  # Make sure this import points to your GPTIntegration module
 
 class TaskFeasibilityAnalyzer:
     def __init__(self, directory, openai_api_key, model="gpt-3.5-turbo", max_tokens=5):
         self.detector = ProjectStructureDetector(directory, openai_api_key)
-        self.client = openai.OpenAI(api_key=openai_api_key)
-        self.model = model
-        self.max_tokens = max_tokens
+        self.gpt_integration = GPTIntegration(openai_api_key, model=model, max_tokens=max_tokens)  # Initialize GPTIntegration
 
     def analyze_task(self, task_description):
         # Detect the structure of the project and languages used
         project_structure = self.detector.detect_structure(ignore_gitignore=True)
         project_languages = self.detector.detect_languages()
 
-        # Build the prompt for GPT-3
+        # Build the prompt for GPT
         system_message = self._build_system_message(project_structure, project_languages)
         user_message = self._build_user_message(task_description)
 
-        # Query GPT-3
-        response = self.client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": system_message},
-                {"role": "user", "content": user_message}
-            ],
-            model=self.model,
-            max_tokens=self.max_tokens
-        )
+        # Query GPT through GPTIntegration module
+        response = self.gpt_integration.query_gpt(system_message, user_message)
 
         # Extract the probability from the response
         probability = self._interpret_response(response.choices[0].message.content.strip())

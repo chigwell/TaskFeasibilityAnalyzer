@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='TaskFeasibilityAnalyzer',
-    version='0.0.1',
+    version='0.0.4',
     description='A Python package to determine the feasibility of coding tasks using GPT-3.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -15,7 +15,8 @@ setup(
     packages=find_packages(),
     install_requires=[
         'openai',
-        'projectstructor'
+        'projectstructor',
+        'gptintegration',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
