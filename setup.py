@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='TaskFeasibilityAnalyzer',
-    version='0.0.4',
+    version='2025.5.180905',
     description='A Python package to determine the feasibility of coding tasks using GPT-3.',
     long_description=long_description,
     long_description_content_type='text/markdown',
