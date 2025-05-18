@@ -1,6 +1,7 @@
 [![PyPI version](https://badge.fury.io/py/TaskFeasibilityAnalyzer.svg)](https://badge.fury.io/py/TaskFeasibilityAnalyzer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://static.pepy.tech/badge/taskfeasibilityanalyzer)](https://pepy.tech/project/taskfeasibilityanalyzer)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue)](https://www.linkedin.com/in/eugene-evstafev-716669181/)
 
 # TaskFeasibilityAnalyzer
 
